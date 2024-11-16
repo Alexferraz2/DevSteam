@@ -17,7 +17,7 @@ const SaleCard = () => {
                         </div>
                         
                     </div>
-                    <Button>Adcionar ao carrinho</Button>
+                    <Button fullwidth>Adcionar ao carrinho</Button>
                 </div>
                 
             </div>

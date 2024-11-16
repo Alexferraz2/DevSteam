@@ -4,6 +4,7 @@ import NavBar from '@/components/NavBar/NavBar'
 import Subtitle from '@/components/tipography/subtitle/subtitle'
 import Head from 'next/head'
 import styles from '@/styles/index.module.css'
+import GameCard from '@/components/cards/ganecard/gamecard'
 
 export default function Home() {
   return (
@@ -28,7 +29,10 @@ export default function Home() {
           </div>
           
           <div className={styles.session}>
-            <Subtitle>Promoções</Subtitle>
+            <Subtitle>Outros Jogos</Subtitle>
+            <div>
+              <GameCard/>
+            </div>
           </div>
           
         </Container>
