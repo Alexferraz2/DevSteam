@@ -1,3 +1,4 @@
+import SaleCard from '@/components/cards/salecard/salcard'
 import Container from '@/components/container/container'
 import NavBar from '@/components/NavBar/NavBar'
 import Subtitle from '@/components/tipography/subtitle/subtitle'
@@ -17,6 +18,7 @@ export default function Home() {
         <Container>
           <div>
             <Subtitle>Meus jogos</Subtitle>
+            <SaleCard/>
           </div>
           
           <div>
