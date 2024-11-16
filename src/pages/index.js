@@ -1,3 +1,6 @@
+import Container from '@/components/container/container'
+import NavBar from '@/components/NavBar/NavBar'
+import Subtitle from '@/components/tipography/subtitle/subtitle'
 import Head from 'next/head'
 
 export default function Home() {
@@ -10,7 +13,19 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        DevStart: A sua loja online de games
+        <NavBar/>
+        <Container>
+          <div>
+            <Subtitle>Meus jogos</Subtitle>
+          </div>
+          
+          <div>
+            <Subtitle>Promoções</Subtitle>
+          </div>
+          
+        </Container>
+        
+        
       </div>
     </>
   )
