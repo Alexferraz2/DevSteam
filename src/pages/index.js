@@ -21,9 +21,25 @@ export default function Home() {
           <div className={styles.session}>
             <Subtitle>Meus jogos</Subtitle>
             <div className={styles.salecontainer}>
-              <SaleCard/>
-              <SaleCard/>
-              <SaleCard/>
+              <SaleCard
+                image={'league-of-legends.jpg'}
+                discount={'-20%'}
+                fullprice={'R$ 99,99'}
+                discountprice={'R$ 79,99'}
+
+              />
+              <SaleCard
+              image={'dota-2.jpg'}
+              discount={'-20%'}
+              fullprice={'R$ 99,99'}
+              discountprice={'R$ 79,99'}
+              />
+              <SaleCard
+              image={'valorant.jpg'}
+              discount={'-20%'}
+              fullprice={'R$ 99,99'}
+              discountprice={'R$ 79,99'}
+              />
             </div>
             
           </div>
@@ -31,9 +47,24 @@ export default function Home() {
           <div className={styles.session}>
             <Subtitle>Outros Jogos</Subtitle>
             <div className={styles.gamecontainer}>
-              <GameCard/>
-              <GameCard/>
-              <GameCard/>
+              <GameCard
+              image={'call_of_duty.jpg'}
+              name={'Call of Duty Black Ops 6'}
+              type={'Ação'}
+              price={'R$ 109,99'}
+              />
+              <GameCard 
+              image={'The-Last-of-Us-Part-1.webp'}
+              name={'The Last Of Us - Parte 1'}
+              type={'Ação, aventura e sobrevivência'}
+              price={'R$ 309,99'}
+              />
+              <GameCard
+              image={'The-Last-of-Us-Part-2.webp'}
+              name={'The Last Of Us - Parte 2'}
+              type={'Ação, aventura e sobrevivência'}
+              price={'R$ 359,99'}
+              />
             </div>
           </div>
           
