@@ -1,18 +1,32 @@
 import CartOption from '../cartoption/cartoption';
 import styles from './cartmenu.module.css'
 
-const CartMenu = () => {
+const CartMenu = ( { cart, onRemove }) => {
+
+       
     return (
         <div className={styles.menu}>
 
             <div className={styles.options}>
-                <CartOption/>
-                <CartOption/>
-                <CartOption/>
+                 {cart.length === 0 && <p>Nenhum produto no carrinho</p>}    
+
+                {cart.map((cartInfo, pos) => 
+                    <CartOption
+                        image={cartInfo.image}
+                        name={cartInfo.name}
+                        price={cartInfo.price}
+                        onRemove={() => onRemove(pos)}
+                        key={`cartInfo${pos}`}
+                    />
+                )}
+                
+                
             </div>
             <div className={styles.priceline}>
                 <h2>Total</h2>
-                <h2 className={styles.price}>R$ 99,99</h2>
+                {cart.length === 0 && <h2 className={styles.price}>R$ 0.00</h2>}
+                {cart.length > 0 && <h2 className={styles.price}>R$ {cart.reduce((acc, item) => acc + item.price, 0)}</h2>}
+                
             </div>
             
         </div>

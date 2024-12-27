@@ -1,9 +1,19 @@
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
 .input {
     background: #316282;
     padding: 10px;
     color: #fff;
     border: 0;
     outline: none;
+
 }
 
 .input::placeholder {
@@ -13,4 +23,10 @@
 
 .fullwidth {
     width: 100%;
+}
+
+@media (min-width: 851px) and (max-width: 871px) {
+    .input {
+        margin: 0 10px;
+    }
 }

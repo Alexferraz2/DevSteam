@@ -3,8 +3,9 @@ import styles from './cartButton.module.css'
 import { BsCart4} from 'react-icons/bs'
 import { useState } from 'react'
 
-const CartButton = () => {
+const CartButton = ( {cart, onRemove }) => {
     const [open, setOpen] = useState(false)
+    
     return (
         <div>
             <BsCart4 
@@ -12,7 +13,7 @@ const CartButton = () => {
                 className={styles.icon}
                 onClick={() => {setOpen(!open)}}
             />
-            {open && <CartMenu/>}
+            {open && <CartMenu cart={cart} onRemove={onRemove}/>}
             
         </div>
     )

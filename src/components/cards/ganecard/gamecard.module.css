@@ -7,6 +7,7 @@
     display: flex;
     flex-direction: column;        
     padding: 10px;
+    width: 400px;
     flex: 1;
     gap: 10px;
     
@@ -38,6 +39,26 @@
     color: #BEEB14;
     font-size: 32px;
 }
+
+
+@media (max-width: 430px) {
+    .gamecard {
+        flex-direction: column; 
+        width: 350px;               
+        padding: 10px;
+    }
+    .image {
+        width: 100%; 
+        height: auto;
+        object-fit: contain;
+    }
+
+    .info{
+        width: 100%;
+    }
+    
+}
+
 
 @media( max-width: 700px) {
     .image{

@@ -5,8 +5,111 @@ import Subtitle from '@/components/tipography/subtitle/subtitle'
 import Head from 'next/head'
 import styles from '@/styles/index.module.css'
 import GameCard from '@/components/cards/ganecard/gamecard'
+import { useState } from 'react'
 
 export default function Home() {
+
+  const [cart, setCart] = useState([])
+
+  const handleAddProduct = (info) => {
+    
+    setCart([...cart, info])
+  }
+
+  const HandleRemoveProdutc = (pos) => {
+    setCart(cart.filter((obj, posObj) => posObj !== pos))
+  }
+
+  const [searchTerm, setSearchTerm] = useState('')
+
+  const HandleSearchTerm = (event) => {
+    console.log('Valor digitado:', event.target.value); // Log para depuração
+    setSearchTerm(event.target.value); // Atualiza o estado
+  };
+
+  const games = [
+    {
+      image: 'league-of-legends.jpg',
+      name: 'League of Legends',
+      price: 79.99,
+      discount: '-20%',
+      fullprice: 'R$ 99,99',
+      discountprice: 'R$ 79,99'
+    },
+    {
+      image: 'dota-2.jpg',
+      name: 'Dota 2',
+      price: 79.99,
+      discount: '-20%',
+      fullprice: 'R$ 99,99',
+      discountprice: 'R$ 79,99'
+    },
+    {
+      image: 'valorant.jpg',
+      name: 'Valorant',
+      price: 79.99,
+      discount: '-20%',
+      fullprice: 'R$ 99,99',
+      discountprice: 'R$ 79,99'
+    },
+    {
+      image: 'The-Last-of-Us-Part-1.webp',
+      name: 'The Last Of Us - Parte 1',
+      type: 'Ação, aventura e sobrevivência',
+      price: 309.99
+    },
+
+    {
+      image: 'The-Last-of-Us-Part-2.webp',
+      name: 'The Last Of Us - Parte 2',
+      type: 'Ação, aventura e sobrevivência',
+      price: 309.99
+    },
+    
+    {
+      image: 'counter-strike.jpg',
+      name: 'Counter Strike Global Offensive',
+      type: 'Tiro em primeira pessoa',
+      price: 309.99
+    }
+  ];
+
+  const filteredGames = games.filter(game =>
+    game.name.toLowerCase().includes(searchTerm)
+  );
+
+  const games2 = [
+    {
+      image: 'The-Last-of-Us-Part-1.webp',
+      name: 'The Last Of Us - Parte 1',
+      type: 'Ação, aventura e sobrevivência',
+      price: 309.99
+    },
+
+    {
+      image: 'The-Last-of-Us-Part-2.webp',
+      name: 'The Last Of Us - Parte 2',
+      type: 'Ação, aventura e sobrevivência',
+      price: 309.99
+    },
+    
+    {
+      image: 'counter-strike.jpg',
+      name: 'Counter Strike Global Offensive',
+      type: 'Tiro em primeira pessoa',
+      price: 309.99
+    }
+  ];
+
+  const filteredGames2 = games2.filter(game =>
+    game.name.toLowerCase().includes(searchTerm)
+  );
+
+  
+
+  
+  
+  
   return (
     <>
       <Head>
@@ -16,55 +119,43 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <NavBar/>
+        <NavBar
+          cart={cart}
+          onRemove={HandleRemoveProdutc}
+          searchTerm={searchTerm}
+          handleSearchTerm={HandleSearchTerm}
+        />
         <Container>
           <div className={styles.session}>
             <Subtitle>Meus jogos</Subtitle>
             <div className={styles.salecontainer}>
-              <SaleCard
-                image={'league-of-legends.jpg'}
-                discount={'-20%'}
-                fullprice={'R$ 99,99'}
-                discountprice={'R$ 79,99'}
+              {(filteredGames.length > 0 ? filteredGames : games).map((game, index) => (
+                  <SaleCard
+                    key={index}
+                    image={game.image}
+                    discount={game.discount}
+                    fullprice={game.fullprice}
+                    discountprice={game.discountprice}
+                    onAdd={() => handleAddProduct(game)}
+                  />
+                ))}
+              
+              {(filteredGames2.length > 0 ? filteredGames2 : games2).map((game, index) => (
+                <GameCard 
+                key={index}
+                image={game.image}
+                name={game.name}
+                type={game.type}
+                price={game.price}
+                onAdd={() => handleAddProduct(game)}
+                
+                />
 
-              />
-              <SaleCard
-              image={'dota-2.jpg'}
-              discount={'-20%'}
-              fullprice={'R$ 99,99'}
-              discountprice={'R$ 79,99'}
-              />
-              <SaleCard
-              image={'valorant.jpg'}
-              discount={'-20%'}
-              fullprice={'R$ 99,99'}
-              discountprice={'R$ 79,99'}
-              />
-            </div>
-            
-          </div>
-          
-          <div className={styles.session}>
-            <Subtitle>Outros Jogos</Subtitle>
-            <div className={styles.gamecontainer}>
-              <GameCard
-              image={'call_of_duty.jpg'}
-              name={'Call of Duty Black Ops 6'}
-              type={'Ação'}
-              price={'R$ 109,99'}
-              />
-              <GameCard 
-              image={'The-Last-of-Us-Part-1.webp'}
-              name={'The Last Of Us - Parte 1'}
-              type={'Ação, aventura e sobrevivência'}
-              price={'R$ 309,99'}
-              />
-              <GameCard
-              image={'The-Last-of-Us-Part-2.webp'}
-              name={'The Last Of Us - Parte 2'}
-              type={'Ação, aventura e sobrevivência'}
-              price={'R$ 359,99'}
-              />
+              ))}
+                       
+              
+              
+             
             </div>
           </div>
           

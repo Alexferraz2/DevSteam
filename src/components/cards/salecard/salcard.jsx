@@ -2,7 +2,7 @@ import Button from '@/components/forms/button/button';
 import styles from './salecard.module.css'
 import Image from 'next/image'
 
-const SaleCard = ({ image, discount, fullprice, discountprice}) => {
+const SaleCard = ({ image, discount, fullprice, discountprice, onAdd}) => {
     return(
        
             <div className={styles.salecard}>
@@ -17,7 +17,7 @@ const SaleCard = ({ image, discount, fullprice, discountprice}) => {
                         </div>
                         
                     </div>
-                    <Button fullwidth>Adcionar ao carrinho</Button>
+                    <Button fullwidth onClick={onAdd}>Adcionar ao carrinho</Button>
                 </div>
                 
             </div>
