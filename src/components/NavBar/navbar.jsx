@@ -1,6 +1,5 @@
 import Logo from '@/components/logo/logo';
 import styles from './navbar.module.css';
-import { BsCart4 } from 'react-icons/bs';
 import Input from '../forms/imput/input';
 import CartButton from '../forms/cartButton/cartButton';
 
