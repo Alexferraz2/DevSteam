@@ -23,8 +23,8 @@ export default function Home() {
   const [searchTerm, setSearchTerm] = useState('')
 
   const HandleSearchTerm = (event) => {
-    console.log('Valor digitado:', event.target.value); // Log para depuração
-    setSearchTerm(event.target.value); // Atualiza o estado
+    console.log('Valor digitado:', event.target.value); 
+    setSearchTerm(event.target.value); 
   };
 
   const games = [
