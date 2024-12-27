@@ -12,8 +12,8 @@ const NavBar = ({ cart, onRemove, searchTerm, handleSearchTerm }) => {
         <Input
           placeholder="Buscar"
           fullwidth
-          value={searchTerm} // Passa o valor do estado
-          onChange={handleSearchTerm} // Passa o evento de mudança
+          value={searchTerm} 
+          onChange={handleSearchTerm} 
         />
       </div>
       <CartButton cart={cart} onRemove={onRemove} />
